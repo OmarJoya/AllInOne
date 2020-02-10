@@ -1,15 +1,15 @@
 package com.ojoya.allinone.ui.dashboard
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.ojoya.allinone.R
+import com.ojoya.allinone.ui.base.BaseActivity
 import com.ojoya.allinone.ui.dashboard.adapters.NavViewPager
 import com.ojoya.allinone.ui.dashboard.tabs.games.GamesFragment
 import com.ojoya.allinone.ui.dashboard.tabs.settings.SettingsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
-class DashboardActivity : AppCompatActivity() {
+class DashboardActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

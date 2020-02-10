@@ -5,8 +5,8 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="@dimen/cardview_width"
-        android:layout_height="@dimen/cardview_height"
+        android:layout_width="@dimen/games_cardview_width"
+        android:layout_height="@dimen/games_cardview_height"
         android:layout_gravity="center_horizontal"
         app:cardCornerRadius="@dimen/cardview_radius"
         app:cardElevation="@dimen/cardview_elevation"

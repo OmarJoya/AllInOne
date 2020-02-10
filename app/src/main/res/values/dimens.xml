@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="cardview_height">100dp</dimen>
-    <dimen name="cardview_width">130dp</dimen>
+
+    <dimen name="text_small">12sp</dimen>
+    <dimen name="text_default">14sp</dimen>
+    <dimen name="text_regular">16sp</dimen>
+    <dimen name="text_large">20sp</dimen>
+    <dimen name="text_huge">30sp</dimen>
+
+    <dimen name="spacing_small">4dp</dimen>
+    <dimen name="spacing_medium">8dp</dimen>
+    <dimen name="spacing_regular">12dp</dimen>
+    <dimen name="spacing_large">18dp</dimen>
+    <dimen name="spacing_big">24dp</dimen>
+
+    <!--COMMON-->
     <dimen name="cardview_elevation">2dp</dimen>
     <dimen name="cardview_radius">6dp</dimen>
+
+    <!--GAMES-->
+    <dimen name="games_cardview_height">110dp</dimen>
+    <dimen name="games_cardview_width">150dp</dimen>
+
 </resources>
