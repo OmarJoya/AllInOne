@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="hangman_categories">
+        <item>Random</item>
+        <item>Animals</item>
+        <item>Colors</item>
+        <item>Countries</item>
+        <item>Sports</item>
+    </string-array>
+
+    <string-array name="hangman_animals">
+        <item>Eagle</item>
+        <item>Albatross</item>
+        <item>Moose</item>
+        <item>Antelope</item>
+        <item>Squirrel</item>
+        <item>Chipmunk</item>
+        <item>Flying squirrel</item>
+        <item>Armadillo</item>
+        <item>Ostrich</item>
+        <item>Wasp</item>
+        <item>Baboon</item>
+        <item>Catfish</item>
+        <item>Whale</item>
+        <item>Humpback whale</item>
+        <item>Bison</item>
+        <item>Buffalo</item>
+        <item>Vulture</item>
+        <item>Donkey</item>
+        <item>Horse</item>
+        <item>Seahorse</item>
+        <item>Goat</item>
+        <item>Puppy</item>
+        <item>Alligator</item>
+        <item>Squid</item>
+        <item>Giant squid</item>
+        <item>Chameleon</item>
+        <item>Camel</item>
+        <item>Kangaroo</item>
+        <item>Snail</item>
+        <item>Beaver</item>
+        <item>Zebra</item>
+        <item>Pig</item>
+        <item>Chimpanzee</item>
+        <item>Centipede</item>
+        <item>Deer</item>
+        <item>Swan</item>
+        <item>Koala</item>
+        <item>Crocodile</item>
+        <item>Hummingbird</item>
+        <item>Weasel</item>
+        <item>Guinea pig</item>
+        <item>Rabbit</item>
+        <item>Cockroach</item>
+        <item>Dolphin</item>
+        <item>Dragon</item>
+        <item>Elephant</item>
+        <item>African elephant</item>
+        <item>Asian elephant</item>
+        <item>Hedgehog</item>
+        <item>Scorpion</item>
+        <item>Starfish</item>
+        <item>Pheasant</item>
+        <item>Seal</item>
+        <item>Chicken</item>
+        <item>Goose</item>
+        <item>Cat</item>
+        <item>Bobcat</item>
+        <item>Gecko</item>
+        <item>Wolverine</item>
+        <item>Gorilla</item>
+        <item>Sparrow</item>
+        <item>Hamster</item>
+        <item>Falcon</item>
+        <item>Hyena</item>
+        <item>Hippopotamus</item>
+        <item>Ant</item>
+        <item>Fire ants</item>
+        <item>Ferret</item>
+        <item>Giraffe</item>
+        <item>Lizard</item>
+        <item>Lobster</item>
+        <item>Lion</item>
+        <item>Leopard</item>
+        <item>Cheetah</item>
+        <item>Dragonfly</item>
+        <item>Lynx</item>
+        <item>Wolf</item>
+        <item>Parrot</item>
+        <item>Firefly</item>
+        <item>Manatee</item>
+        <item>Stingray</item>
+        <item>Raccoon</item>
+        <item>Butterfly</item>
+        <item>Monarch butterfly</item>
+        <item>Millipede</item>
+        <item>Monkey</item>
+        <item>Spider monkey</item>
+        <item>Walrus</item>
+        <item>Fly</item>
+        <item>Mule</item>
+        <item>Bat</item>
+        <item>Otter</item>
+        <item>Ocelot</item>
+        <item>Orangutan</item>
+        <item>Platypus</item>
+        <item>Caterpillar</item>
+        <item>Bear</item>
+        <item>Anteater</item>
+        <item>Black bear</item>
+        <item>Panda bear</item>
+        <item>Polar bear</item>
+        <item>Sheep</item>
+        <item>Bird</item>
+        <item>Woodpecker</item>
+        <item>German Shepherd</item>
+        <item>Peacock</item>
+        <item>Pelican</item>
+        <item>Sloth</item>
+        <item>Penguin</item>
+        <item>Piranha</item>
+    </string-array>
+
+    <string-array name="hangman_countries">
+        <item>Argentina</item>
+        <item>Australia</item>
+        <item>Scotland</item>
+        <item>Canada</item>
+        <item>Chile</item>
+        <item>China</item>
+        <item>Colombia</item>
+        <item>Spain</item>
+        <item>France</item>
+        <item>Germany</item>
+        <item>United States</item>
+        <item>England</item>
+        <item>Japan</item>
+        <item>Wales</item>
+        <item>Ireland</item>
+    </string-array>
+
+    <string-array name="hangman_colors">
+        <item>blue</item>
+        <item>brown</item>
+        <item>black</item>
+        <item>green</item>
+        <item>grey</item>
+        <item>orange</item>
+        <item>pink</item>
+        <item>red</item>
+        <item>silvery</item>
+        <item>white</item>
+        <item>yellow</item>
+        <item>gold</item>
+        <item>purple</item>
+        <item>sky blue</item>
+        <item>light blue</item>
+        <item>navy blue</item>
+        <item>turquoise</item>
+        <item>violet</item>
+        <item>dark</item>
+        <item>lilac</item>
+        <item>tan</item>
+        <item>transparent</item>
+    </string-array>
+
+    <string-array name="hangman_sports">
+        <item>aerobics</item>
+        <item>aquatics</item>
+        <item>archery</item>
+        <item>arrow</item>
+        <item>athlete</item>
+        <item>athletics</item>
+        <item>badminton</item>
+        <item>ball</item>
+        <item>baseball</item>
+        <item>basketball</item>
+        <item>bat</item>
+        <item>bicycle</item>
+        <item>bow</item>
+        <item>bowling</item>
+        <item>boxing</item>
+        <item>boxing gloves</item>
+        <item>boxer</item>
+        <item>canoeing</item>
+        <item>canoe</item>
+        <item>catcher</item>
+        <item>champion</item>
+        <item>championship</item>
+        <item>cheerleader</item>
+        <item>climbing</item>
+        <item>coach</item>
+        <item>competition</item>
+        <item>cricket</item>
+        <item>cup</item>
+        <item>cycling</item>
+        <item>cyclist</item>
+        <item>diving</item>
+        <item>equitation</item>
+        <item>fault</item>
+        <item>fencing</item>
+        <item>fishing</item>
+        <item>football</item>
+        <item>goal</item>
+        <item>goalie</item>
+        <item>golf</item>
+        <item>golfer</item>
+        <item>gymnast</item>
+        <item>gymnastics</item>
+        <item>handball</item>
+        <item>helmet</item>
+        <item>hockey</item>
+        <item>hockey stick</item>
+        <item>horse racing</item>
+        <item>hunting</item>
+        <item>ice skating</item>
+        <item>javelin</item>
+        <item>judo</item>
+        <item>karate</item>
+        <item>loser</item>
+        <item>manager</item>
+        <item>motorcycle</item>
+        <item>motor racing</item>
+        <item>obstacle race</item>
+        <item>offense</item>
+        <item>opponent</item>
+        <item>pitcher</item>
+        <item>penalty</item>
+        <item>player</item>
+        <item>polo</item>
+        <item>pool</item>
+        <item>racing</item>
+    </string-array>
+
+    <string name="alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+</resources>

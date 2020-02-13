@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ojoya.allinone.R
-import com.ojoya.allinone.ui.dashboard.model.Game
+import com.ojoya.allinone.model.Game
 import kotlinx.android.synthetic.main.view_game.view.*
 
 class GamesAdapter(private val games: List<Game>) : RecyclerView.Adapter<GamesAdapter.ViewHolder>() {
@@ -26,6 +26,7 @@ class GamesAdapter(private val games: List<Game>) : RecyclerView.Adapter<GamesAd
         fun bind(game: Game) = with(itemView) {
             nameTextView.text = game.name
             setOnClickListener { onClickListener(game) }
+            gameImageView.setImageResource(game.image)
         }
     }
 }
