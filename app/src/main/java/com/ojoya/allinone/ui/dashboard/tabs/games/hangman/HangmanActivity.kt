@@ -35,6 +35,8 @@ class HangmanActivity : BaseActivity(), HangmanGameFragment.Companion.Listener,
 
     override fun onWin() {
         score++
+        if (score > appSharedPreferences.hangmanMaxScore)
+            appSharedPreferences.hangmanMaxScore = score
         navigateToFragment(GameResultFragment.newInstance(true))
     }
 
@@ -57,6 +59,6 @@ class HangmanActivity : BaseActivity(), HangmanGameFragment.Companion.Listener,
 
     override fun onStartGame(selectedCategory: Int) {
         this.selectedCategory = selectedCategory
-        navigateToFragment(HangmanGameFragment.newInstance(score, selectedCategory))
+        navigateToFragment(HangmanGameFragment.newInstance(appSharedPreferences.hangmanMaxScore, selectedCategory))
     }
 }
