@@ -11,6 +11,6 @@ abstract class ActivityBuilderModule {
     @ContributesAndroidInjector
     abstract fun contributeDashboardActivity(): DashboardActivity
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = [HangmanFragmentModule::class])
     abstract fun contributeHangmanActivity(): HangmanActivity
 }
