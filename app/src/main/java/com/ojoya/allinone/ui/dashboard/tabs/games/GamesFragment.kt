@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.fragment_games.*
 class GamesFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_games, container, false)
     }
 
@@ -37,8 +36,6 @@ class GamesFragment : Fragment() {
     companion object {
         private const val HANGMAN_ID = 0
 
-        fun newInstance(): GamesFragment {
-            return GamesFragment()
-        }
+        fun newInstance(): GamesFragment = GamesFragment()
     }
 }

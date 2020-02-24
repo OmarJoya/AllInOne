@@ -22,9 +22,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding.enabled = true
 }
 
 dependencies {
+    def dagger = "2.20"
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -38,8 +41,9 @@ dependencies {
     implementation 'com.android.support:design:29.0.0'
 
     //Dager 2
-    implementation 'com.google.dagger:dagger-android:2.16'
-    annotationProcessor 'com.google.dagger:dagger-android-processor:2.16'
-    kapt "com.google.dagger:dagger-compiler:2.16"
-    kapt "com.google.dagger:dagger-android-processor:2.16"
+    implementation "com.google.dagger:dagger-android:$dagger"
+    implementation "com.google.dagger:dagger-android-support:$dagger"
+    kapt "com.google.dagger:dagger-compiler:$dagger"
+    kapt "com.google.dagger:dagger-android-processor:$dagger"
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 }

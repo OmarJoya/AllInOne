@@ -9,10 +9,13 @@ import android.view.ViewGroup
 import android.view.ViewTreeObserver
 import android.widget.Button
 import android.widget.LinearLayout
+import androidx.lifecycle.ViewModelProvider
 import com.ojoya.allinone.R
+import com.ojoya.allinone.databinding.FragmentHangmanGameBinding
 import com.ojoya.allinone.ui.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_hangman_game.*
 import java.util.*
+import javax.inject.Inject
 
 class HangmanGameFragment : BaseFragment() {
 
@@ -20,6 +23,8 @@ class HangmanGameFragment : BaseFragment() {
     private lateinit var word: String
     private var attempts = 0
     private lateinit var listener: Listener
+    @Inject
+    lateinit var hangmanViewModel: HangmanViewModel
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -27,17 +32,16 @@ class HangmanGameFragment : BaseFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_hangman_game, container, false)
+        val binding = FragmentHangmanGameBinding.inflate(layoutInflater, container, false)
+        hangmanViewModel = ViewModelProvider(requireActivity(), viewModelFactory).get(HangmanViewModel::class.java)
+        binding.viewModel = hangmanViewModel
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var selectedCategory = RANDOM
-        arguments?.getInt(CATEGORY)?.let {
-            selectedCategory = it
-        }
-        val resourceId = when(selectedCategory) {
+        val resourceId = when(hangmanViewModel.selectedCategory) {
             ANIMALS -> R.array.hangman_animals
             COLORS -> R.array.hangman_colors
             COUNTRIES -> R.array.hangman_countries
@@ -56,10 +60,6 @@ class HangmanGameFragment : BaseFragment() {
             resources.getStringArray(resourceId).toMutableList()
 
         word = words[Random().nextInt(words.size)].toUpperCase(Locale.US)
-
-        arguments?.get(SCORE)?.let {
-            scoreTextView.text = getString(R.string.score, it)
-        }
 
         createAlphabetButtons()
         evaluateSelectedLetters()
@@ -91,8 +91,10 @@ class HangmanGameFragment : BaseFragment() {
             }
         }
         wordTextView.text = wordWithUnderscores
-        if (!wordWithUnderscores.contains('_'))
+        if (!wordWithUnderscores.contains('_')) {
+            hangmanViewModel.score ++
             listener.onWin()
+        }
     }
 
     private fun createLetterButton(columnWidth: Int, letter: Char): Button {
@@ -120,13 +122,14 @@ class HangmanGameFragment : BaseFragment() {
             2 -> hangmanImageView.setImageResource(R.drawable.ic_hangman_left_hand)
             3 -> hangmanImageView.setImageResource(R.drawable.ic_hangman_right_hand)
             4 -> hangmanImageView.setImageResource(R.drawable.ic_hangman_left_feet)
-            5 -> listener.onLose()
+            5 -> {
+                hangmanViewModel.score = 0
+                listener.onLose()
+            }
         }
     }
 
     companion object {
-        private const val SCORE = "Score"
-        private const val CATEGORY = "Category"
         const val RANDOM = 0
         private const val ANIMALS = 1
         private const val COLORS = 2
@@ -138,13 +141,6 @@ class HangmanGameFragment : BaseFragment() {
             fun onLose()
         }
 
-        fun newInstance(score: Int, selectedCategory: Int): HangmanGameFragment {
-            return HangmanGameFragment().apply {
-                arguments = Bundle().apply {
-                    putInt(SCORE, score)
-                    putInt(CATEGORY, selectedCategory)
-                }
-            }
-        }
+        fun newInstance(): HangmanGameFragment = HangmanGameFragment()
     }
 }

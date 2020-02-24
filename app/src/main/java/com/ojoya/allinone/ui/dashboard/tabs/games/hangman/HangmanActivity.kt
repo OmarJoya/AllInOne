@@ -4,26 +4,38 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.ojoya.allinone.R
 import com.ojoya.allinone.ui.base.BaseActivity
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.support.HasSupportFragmentInjector
+import javax.inject.Inject
 
-class HangmanActivity : BaseActivity(), HangmanGameFragment.Companion.Listener,
+class HangmanActivity : BaseActivity(), HasSupportFragmentInjector, HangmanGameFragment.Companion.Listener,
     GameResultFragment.Companion.Listener,
     InitialConfigFragment.Companion.Listener {
 
-    private var selectedCategory: Int = HangmanGameFragment.RANDOM
-    private var score: Int = 0
+    @Inject
+    lateinit var hangmanViewModel: HangmanViewModel
+
+    @Inject
+    lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hangman)
+
+        hangmanViewModel = ViewModelProvider(this, viewModelFactory).get(HangmanViewModel::class.java)
+
         fragmentContainer = R.id.container
 
         navigateToFragment(InitialConfigFragment.newInstance())
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
-        supportActionBar?.setTitle(R.string.hangman)
+        supportActionBar?.title = getString(R.string.hangman)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -34,14 +46,10 @@ class HangmanActivity : BaseActivity(), HangmanGameFragment.Companion.Listener,
     }
 
     override fun onWin() {
-        score++
-        if (score > appSharedPreferences.hangmanMaxScore)
-            appSharedPreferences.hangmanMaxScore = score
         navigateToFragment(GameResultFragment.newInstance(true))
     }
 
     override fun onLose() {
-        score = 0
         navigateToFragment(GameResultFragment.newInstance(false))
     }
 
@@ -50,15 +58,16 @@ class HangmanActivity : BaseActivity(), HangmanGameFragment.Companion.Listener,
     }
 
     override fun onNextWord() {
-        navigateToFragment(HangmanGameFragment.newInstance(score, selectedCategory))
+        navigateToFragment(HangmanGameFragment.newInstance())
     }
+
+    override fun onStartGame() {
+        navigateToFragment(HangmanGameFragment.newInstance())
+    }
+
+    override fun supportFragmentInjector(): AndroidInjector<Fragment> = fragmentInjector
 
     companion object {
         fun newIntent(context: Context): Intent = Intent(context, HangmanActivity::class.java)
-    }
-
-    override fun onStartGame(selectedCategory: Int) {
-        this.selectedCategory = selectedCategory
-        navigateToFragment(HangmanGameFragment.newInstance(appSharedPreferences.hangmanMaxScore, selectedCategory))
     }
 }

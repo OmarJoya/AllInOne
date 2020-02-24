@@ -5,7 +5,8 @@
     <!--Common-->
     <string name="games">Juegos</string>
     <string name="settings">Configuración</string>
-    <string name="score">Puntuación: %s</string>
+    <string name="score">Puntuación:</string>
+    <string name="max_score">Max puntuación:</string>
     <string name="start_game">Comenzar juego</string>
     <string name="game_options">Opciones de Juego</string>
 

@@ -7,14 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
+import androidx.lifecycle.ViewModelProvider
 
 import com.ojoya.allinone.R
 import com.ojoya.allinone.ui.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_initial_config.*
+import javax.inject.Inject
 
 class InitialConfigFragment : BaseFragment() {
 
-    private var selectedCategory = HangmanGameFragment.RANDOM
+    @Inject
+    lateinit var hangmanViewModel: HangmanViewModel
     private lateinit var listener: Listener
 
     override fun onAttach(context: Context) {
@@ -27,16 +30,17 @@ class InitialConfigFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        hangmanViewModel = ViewModelProvider(requireActivity(), viewModelFactory).get(HangmanViewModel::class.java)
 
         startGameButton.setOnClickListener {
-            listener.onStartGame(selectedCategory)
+            listener.onStartGame()
         }
 
         categorySpinner.onItemSelectedListener = object: OnItemSelectedListener {
             override fun onNothingSelected(p0: AdapterView<*>?) {}
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                selectedCategory = position
+                hangmanViewModel.selectedCategory = position
             }
         }
     }
@@ -48,7 +52,7 @@ class InitialConfigFragment : BaseFragment() {
         }
 
         interface Listener {
-            fun onStartGame(selectedCategory: Int)
+            fun onStartGame()
         }
     }
 }
