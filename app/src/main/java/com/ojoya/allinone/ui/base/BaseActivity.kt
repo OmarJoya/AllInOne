@@ -27,6 +27,11 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
     }
 
+    override fun onPause() {
+        super.onPause()
+        disposable.clear()
+    }
+
     fun navigateToFragment(fragment: Fragment, addToBackStack: Boolean = false) {
         fragmentContainer?.let { container ->
             val transaction = supportFragmentManager.beginTransaction().apply {

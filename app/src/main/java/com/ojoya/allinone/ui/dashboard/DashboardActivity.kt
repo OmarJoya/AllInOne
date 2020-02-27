@@ -1,7 +1,6 @@
 package com.ojoya.allinone.ui.dashboard
 
 import android.os.Bundle
-import androidx.viewpager.widget.ViewPager
 import com.jakewharton.rxbinding2.support.v4.view.RxViewPager
 import com.ojoya.allinone.R
 import com.ojoya.allinone.ui.base.BaseActivity
@@ -41,5 +40,6 @@ class DashboardActivity : BaseActivity() {
         disposable.add(RxViewPager.pageSelections(dashBoardViewPager).subscribe {position ->
             bottomNavigationView.menu.getItem(position).isChecked = true
         })
+
     }
 }
