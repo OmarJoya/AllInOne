@@ -2,6 +2,7 @@ package com.ojoya.allinone.ui.dashboard
 
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
+import com.jakewharton.rxbinding2.support.v4.view.RxViewPager
 import com.ojoya.allinone.R
 import com.ojoya.allinone.ui.base.BaseActivity
 import com.ojoya.allinone.ui.dashboard.adapters.NavViewPager
@@ -36,16 +37,9 @@ class DashboardActivity : BaseActivity() {
                 else -> false
             }
         }
-        dashBoardViewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageScrollStateChanged(state: Int) {
-            }
 
-            override fun onPageSelected(position: Int) {
-                bottomNavigationView.menu.getItem(position).isChecked = true
-            }
-
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
+        disposable.add(RxViewPager.pageSelections(dashBoardViewPager).subscribe {position ->
+            bottomNavigationView.menu.getItem(position).isChecked = true
         })
-
     }
 }

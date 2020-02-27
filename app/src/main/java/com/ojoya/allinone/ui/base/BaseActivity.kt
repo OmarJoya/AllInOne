@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import com.ojoya.allinone.di.ViewModelFactory
 import com.ojoya.allinone.utils.AppSharedPreferences
 import dagger.android.AndroidInjection
+import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
 abstract class BaseActivity : AppCompatActivity() {
@@ -15,6 +16,8 @@ abstract class BaseActivity : AppCompatActivity() {
     lateinit var appSharedPreferences: AppSharedPreferences
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
+
+    protected var disposable = CompositeDisposable()
 
     @IdRes
     var fragmentContainer: Int? = null
